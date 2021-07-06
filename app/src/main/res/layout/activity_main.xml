@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="HelloWorld"
+        android:text="HelloWorld1"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="343dp" />
 
