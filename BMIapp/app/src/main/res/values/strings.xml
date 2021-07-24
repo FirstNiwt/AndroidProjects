@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BMI app</string>
+    <string name="str_no_input_warning">You need to enter value!</string>
+</resources>

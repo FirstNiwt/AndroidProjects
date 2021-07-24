@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_eight">8dp</dimen>
+    <dimen name="padding_eight">8dp</dimen>
+    <dimen name="text_font_size_48sp">48sp</dimen>
+    <dimen name="button_text_size">24sp</dimen>
+    <dimen name="padding_sixteen">16dp</dimen>
+</resources>
