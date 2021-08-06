@@ -46,5 +46,14 @@
 
     </TextView>
 
-
+    <Button
+        android:id="@+id/alternative_definition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/short_def_view"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="@color/orange"
+        android:text="SHOW ALTERNATIVE DEFINITION"
+        android:visibility="invisible"
+        />
 </RelativeLayout>
