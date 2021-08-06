@@ -1,14 +1,18 @@
 package com.example.dictionaryapp
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONArray
 
 class MainActivity : AppCompatActivity() {
+    private val key = "WORD_DEFINITION"
+    private val idKey = "ID"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,17 +28,39 @@ class MainActivity : AppCompatActivity() {
             val stringRequest = StringRequest(
                 Request.Method.GET,
                 url,
-                Response.Listener {
+                {
                                   response ->
-                    response
+                    extractDefinitionFromJson(response)
                 },
-                Response.ErrorListener {
+                {
 
                         error ->
-                    error
+                    Toast.makeText(this,error.message,Toast.LENGTH_SHORT).show()
                 })
 
             queue.add(stringRequest)
         }
+    }
+
+    private fun extractDefinitionFromJson(response: String){
+
+        val jsonArray = JSONArray(response)
+
+        val firstIndex = jsonArray.getJSONObject(0)
+        val arrayOfShortDef = firstIndex.getJSONArray("shortdef")
+        val shortDef = arrayOfShortDef.get(0)
+
+        val arrayMeta = firstIndex.getJSONObject("hwi")
+        val searchId = arrayMeta.getString("hw")
+
+
+        val intent = Intent(this, WordDefinitionActivity::class.java)
+        intent.putExtra(key,shortDef.toString())
+        intent.putExtra(idKey,searchId)
+        startActivity(intent)
+
+
+
+
     }
 }

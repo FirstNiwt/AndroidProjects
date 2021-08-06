@@ -7,6 +7,7 @@
     android:background="#F2EECB">
 
     <ImageView
+        android:id="@+id/back_to_main_view"
         android:contentDescription="@string/str_back_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,6 +17,7 @@
         />
 
     <TextView
+        android:id="@+id/searched_word_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
@@ -32,6 +34,9 @@
     </TextView>
 
     <TextView
+        android:textColor="@color/black"
+        android:layout_margin="@dimen/margin_eight"
+        android:id="@+id/short_def_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
