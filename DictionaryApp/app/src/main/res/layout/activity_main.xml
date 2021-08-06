@@ -12,7 +12,7 @@
     >
 
     <EditText
-
+        android:id="@+id/word_searched"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="@dimen/margin_eight"
@@ -30,15 +30,17 @@
 
     <ImageButton
         android:contentDescription="@string/str_search_desc"
-        android:id="@+id/button1"
+        android:id="@+id/search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:src="@drawable/ic_baseline_search_50"
         android:layout_marginTop="105dp"
         android:layout_marginRight="14dp"
-
-        android:background="@color/white"/>
+        android:background="@color/white"
+        android:layout_marginEnd="14dp"
+        android:layout_alignParentEnd="true"
+        />
 
 
 
