@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +17,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:layout_marginRight="@dimen/margin_eight"
             android:text="@string/search_button_str"
             android:layout_marginEnd="@dimen/margin_eight"
@@ -29,17 +28,18 @@
         </androidx.appcompat.widget.AppCompatButton>
 
         <EditText
-            android:textColor="@color/black"
-            android:padding="@dimen/margin_eight"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="22sp"
-
-            android:background ="@drawable/edit_text_border"
+            android:autofillHints=""
+            android:background="@drawable/edit_text_border"
             android:hint="@string/search_for_topic"
+            android:inputType="text"
+            android:padding="@dimen/margin_eight"
+            android:textColor="@color/black"
 
 
-            >
+            android:textSize="22sp"
+            tools:ignore="TouchTargetSizeCheck">
 
         </EditText>
 
@@ -57,14 +57,15 @@
     </ListView>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:text="LOAD MORE"
         android:id="@+id/load_more_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="48dp"
         android:layout_margin="@dimen/margin_eight"
-        android:background = "@drawable/button_style"
-        >
+        android:layout_weight="1"
+        android:background="@drawable/button_style"
+        android:minHeight="48dp"
+        android:text= "@string/load_more"
+        tools:ignore="TouchTargetSizeCheck">
 
     </androidx.appcompat.widget.AppCompatButton>
 

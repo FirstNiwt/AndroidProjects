@@ -2,4 +2,5 @@
     <string name="app_name">NewsApp</string>
     <string name="search_button_str">SEARCH</string>
     <string name="search_for_topic">search for topic</string>
+    <string name="load_more">LOAD MORE</string>
 </resources>
