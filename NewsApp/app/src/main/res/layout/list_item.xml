@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/title_text_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="@dimen/text_size_twenty"
+    android:textColor="@color/black"
+    android:layout_margin="@dimen/margin_eight"
+    app:drawableEndCompat="@drawable/ic_arrow_right"
+    tools:text="@string/str_tools_web_title"
+    />

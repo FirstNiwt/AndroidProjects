@@ -1,23 +1,26 @@
 package com.firstniwt.newsapp
 
-
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
+
 import androidx.appcompat.app.AppCompatActivity
 import com.firstniwt.newsapp.api.ApiRequest
+import com.firstniwt.newsapp.api.Data
+import com.firstniwt.newsapp.api.ResponseJson
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import retrofit2.Retrofit
 import retrofit2.awaitResponse
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.Exception
 
 
 const val BASE_URL: String = "https://content.guardianapis.com"
+
 class MainActivity : AppCompatActivity() {
 
-    private var TAG:String = "MainActivity"
+    private var listOfTitlesAndUrls = mutableListOf<Data>()
+    private var pageCount = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -25,9 +28,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
         search_button.setOnClickListener{
+            listOfTitlesAndUrls = mutableListOf()
             getCurrentData()
+
+
 
         }
     }
@@ -43,19 +48,47 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        GlobalScope.launch(Dispatchers.IO){
-            val response = api.getGuardianResponse(word).awaitResponse()
-            if(response.isSuccessful){
-                val data = response.body()!!
-                Log.d(TAG,data.response.results[0].apiUrl)
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
 
+                val response = api.getGuardianResponse(word).awaitResponse()
+                if (response.isSuccessful) {
+
+                    val data = response.body()!!
+
+
+                    withContext(Dispatchers.Main) {
+                        extractJsonData(data)
+                    }
+                }
+
+            }catch(e: Exception){
+                withContext(Dispatchers.Main){
+
+                    Toast.makeText(applicationContext,"Something went wrong, try again or check your internet connection.",Toast.LENGTH_LONG).show()
+                }
             }
+        }
+    }
+    private fun extractJsonData(response: ResponseJson){
+
+        for (i in 0..9){
+
+            val singleResponse = response.response.results[i]
+            val webTitle = singleResponse.webTitle
+            val webUrl = singleResponse.webUrl
+            val fetchedData = Data (webTitle,webUrl)
+
+            listOfTitlesAndUrls.add(fetchedData)
 
         }
 
-    }
-    private fun getUrl():String {
+        val adapter = NewsAdapter(listOfTitlesAndUrls)
+        main_list_view.adapter = adapter
 
-        return ""
+
     }
+
+
+
 }
