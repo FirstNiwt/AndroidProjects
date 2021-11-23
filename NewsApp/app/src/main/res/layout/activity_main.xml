@@ -16,30 +16,32 @@
         android:layout_weight="1">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/search_button"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginRight="@dimen/margin_eight"
-            android:text="@string/search_button_str"
             android:layout_marginEnd="@dimen/margin_eight"
+            android:layout_marginRight="@dimen/margin_eight"
             android:background="@drawable/button_style"
+            android:text="@string/search_button_str"
 
-            >
+            tools:ignore="TouchTargetSizeCheck">
 
         </androidx.appcompat.widget.AppCompatButton>
 
         <EditText
+            android:id="@+id/search_edit_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:autofillHints=""
             android:background="@drawable/edit_text_border"
             android:hint="@string/search_for_topic"
+            android:importantForAutofill="no"
             android:inputType="text"
+
+
             android:padding="@dimen/margin_eight"
             android:textColor="@color/black"
-
-
             android:textSize="22sp"
-            tools:ignore="TouchTargetSizeCheck">
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck">
 
         </EditText>
 
