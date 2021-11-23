@@ -1,6 +1,7 @@
 package com.firstniwt.newsapp
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +21,8 @@ const val BASE_URL: String = "https://content.guardianapis.com"
 class MainActivity : AppCompatActivity() {
 
     private var listOfTitlesAndUrls = mutableListOf<Data>()
-    private var pageCount = 1
+    private var pageNumber = 1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -32,9 +34,13 @@ class MainActivity : AppCompatActivity() {
             listOfTitlesAndUrls = mutableListOf()
             getCurrentData()
 
-
-
         }
+        load_more_button.setOnClickListener{
+            pageNumber+=1
+            getCurrentData()
+        }
+
+
     }
 
     private fun getCurrentData() {
@@ -51,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.IO) {
             try {
 
-                val response = api.getGuardianResponse(word).awaitResponse()
+                val response = api.getGuardianResponse(word,pageNumber,10,"6fa16c5b-0cc0-44bb-8d8a-ce2b2426b262").awaitResponse()
                 if (response.isSuccessful) {
 
                     val data = response.body()!!

@@ -8,9 +8,13 @@ import retrofit2.http.Query
 
 interface ApiRequest {
 
-    @GET(value = "/{word}?page=1&page-size=10&api-key=6fa16c5b-0cc0-44bb-8d8a-ce2b2426b262")
-    fun getGuardianResponse(@Path(value = "word") word:String): Call<ResponseJson>
-
+    @GET(value = "/{word}")
+    fun getGuardianResponse(
+        @Path(value = "word") word: String,
+        @Query("page") numberOfPage: Int,
+        @Query("page-size") pageSize: Int,
+        @Query("api-key") apiKey: String
+    ): Call<ResponseJson>
 
 
 }
