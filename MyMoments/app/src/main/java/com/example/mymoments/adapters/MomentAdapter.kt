@@ -1,17 +1,18 @@
-package com.example.mymoments
+package com.example.mymoments.adapters
 
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mymoments.data.Moment
+import com.example.mymoments.R
 
 class MomentAdapter(private var momentList: MutableList<Moment>) : RecyclerView.Adapter<MomentAdapter.MomentViewHolder>() {
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
         viewType: Int
-    ): MomentAdapter.MomentViewHolder {
+    ): MomentViewHolder {
 
         val context = viewGroup.context
         val inflater = LayoutInflater.from(context)
@@ -22,7 +23,7 @@ class MomentAdapter(private var momentList: MutableList<Moment>) : RecyclerView.
         return MomentViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MomentAdapter.MomentViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MomentViewHolder, position: Int) {
         val item = momentList[position]
         holder.attachMoment(item)
     }
@@ -39,6 +40,7 @@ class MomentAdapter(private var momentList: MutableList<Moment>) : RecyclerView.
         private lateinit var moment: Moment
         private var date : TextView
         private var title: TextView
+
         init
         {
             date = view.findViewById(R.id.date_recycler_item)

@@ -3,4 +3,10 @@
     <string name="add_moment_button">adds new moment</string>
     <string name="moment_recycler_date">moment_date</string>
     <string name="moment_recycler_title">moment title</string>
+    <string name="add_moment_date">current date</string>
+    <string name="add_moment_title">moment title</string>
+    <string name="add_moment_title_hint">title</string>
+    <string name="moment_decryption">your moment</string>
+    <string name="moment_descryption_hint">type your moment</string>
+    <string name="save_moment">save</string>
 </resources>

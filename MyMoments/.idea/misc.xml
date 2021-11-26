@@ -8,9 +8,11 @@
         <entry key="..\:/Users/murzy/AndroidProjects/MyMoments/app/src/main/res/drawable/ic_delete.xml" value="0.3828125" />
         <entry key="..\:/Users/murzy/AndroidProjects/MyMoments/app/src/main/res/drawable/ic_done.xml" value="0.3828125" />
         <entry key="..\:/Users/murzy/AndroidProjects/MyMoments/app/src/main/res/drawable/moment_border_item.xml" value="0.3828125" />
+        <entry key="..\:/Users/murzy/AndroidProjects/MyMoments/app/src/main/res/layout/activity_add_new_moment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murzy/AndroidProjects/MyMoments/app/src/main/res/layout/activity_main.xml" value="0.32518115942028986" />
         <entry key="..\:/Users/murzy/AndroidProjects/MyMoments/app/src/main/res/layout/activity_moment.xml" value="0.32518115942028986" />
         <entry key="..\:/Users/murzy/AndroidProjects/MyMoments/app/src/main/res/layout/recycler_moment_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/murzy/AndroidProjects/MyMoments/app/src/main/res/menu/action_bar_menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
