@@ -1,5 +1,6 @@
 package com.example.mymoments.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymoments.data.Moment
 import com.example.mymoments.R
+import com.example.mymoments.activities.AddNewMoment
 
 class MomentAdapter(private var momentList: MutableList<Moment>) : RecyclerView.Adapter<MomentAdapter.MomentViewHolder>() {
     override fun onCreateViewHolder(
@@ -58,7 +60,11 @@ class MomentAdapter(private var momentList: MutableList<Moment>) : RecyclerView.
         }
 
         override fun onClick(v: View?) {
-            TODO("Not yet implemented")
+            val context = itemView.context
+            val intent = Intent(context, AddNewMoment::class.java)
+            intent.putExtra("rowID",moment.id)
+            context.startActivity(intent)
+
         }
 
     }
