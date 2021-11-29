@@ -106,7 +106,7 @@ class AddNewMoment : AppCompatActivity() {
         }
         else{
 
-            Toast.makeText(this, "New moment added to the list $rowId", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "New moment added to the list", Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -118,12 +118,35 @@ class AddNewMoment : AppCompatActivity() {
 
             R.id.save_moment -> {
 
-                insertMoment()
+                if(id == 0)
+                {
+                    insertMoment()
+                }else{
+                    updateMoment(id)
+                }
+
+
                 finish()
                 true
             }
 
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun updateMoment(id: Int) {
+
+        val momentDBHelper = MomentDBHelper(this)
+
+        val db = momentDBHelper.writableDatabase
+
+        val values = ContentValues().apply{
+            put(COLUMN_TITLE, moment_title_edit_text.text.toString())
+            put(COLUMN_MOMENT, moment_text.text.toString())
+        }
+
+        db.update(TABLE_NAME,values, "$_ID = $id",null)
+
+
     }
 }

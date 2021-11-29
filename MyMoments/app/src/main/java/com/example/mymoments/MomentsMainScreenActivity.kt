@@ -38,6 +38,8 @@ class MomentsMainScreenActivity : AppCompatActivity() {
 
     }
 
+
+
     private fun displayDataInfo()
     {
         val dataBase = momentDBHelper.readableDatabase
@@ -79,6 +81,7 @@ class MomentsMainScreenActivity : AppCompatActivity() {
         super.onStart()
         momentList.clear()
         displayDataInfo()
+
     }
 
     fun createNewMoment(view: View){

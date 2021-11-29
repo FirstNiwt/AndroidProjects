@@ -32,6 +32,8 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingStart="@dimen/text_padding_8"
+        android:textColor="#FAF6F6"
+        android:textColorHint="#F8F8F8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_moment_date" />
 
